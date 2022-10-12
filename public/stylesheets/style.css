@@ -7,3 +7,15 @@ a {
   color: #00b7ff;
 }
 
+#movie-details {
+  padding: 20px;
+  background-color: rgba(31, 178, 170, 0.5) ;
+}
+
+.edit-btn {
+  text-decoration-style: none;
+  color: gray;
+  background-color: white;
+  padding: 4px 7px;
+  border-radius: 4px;
+}

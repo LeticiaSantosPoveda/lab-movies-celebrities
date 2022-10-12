@@ -11,25 +11,27 @@
     <br>
     <a href="/movies/create">Add a Movie</a>
     <br>
-    <a href="/movies/movies">Movies List</a>
+    <a href="/movies">Movies List</a>
     <br>
     
     <h2>Movie details</h2>
-
-        {{#each movie}}
-            {{this.title}}
-            {{this.genre}}
-            {{this.plot}}
-            {{#each this.cast}}
-            {{name}}
-            {{occupation}}
-            {{catchPhrase}}
+        <div id="movie-details">
+        {{#with movie}}
+            <h5><strong>Title: </strong> {{title}}</h5>
+            <h5><strong>Genre: </strong>{{genre}}</h5>
+            <h5><strong>Plot: </strong>{{plot}}</h5>
+            {{#each cast}}
+            <h5><strong>Cast name: </strong>{{name}}</h5>
+            <h5><strong>Cast occupation: </strong>{{occupation}}</h5>
+            <h5><strong>Cast Catch Phrase: </strong>{{catchPhrase}}</h5>
             {{/each}}
+            
             <form action="/movies/{{this._id}}/delete" method="POST">
-            <button type="submit">Delete</button>
+            <br>
+            <a class="btn btn-primary m-3" href="/movies/{{this._id}}/edit">Edit</a>
+            <button class="btn btn-primary" type="submit">Delete</button>
             </form>
-        <hr>
-        {{/each}}
-        
+        {{/with}}
+        </div>
 </body>
 </html>
