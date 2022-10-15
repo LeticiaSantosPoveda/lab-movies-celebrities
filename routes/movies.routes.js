@@ -69,4 +69,16 @@ router.get("/movies/:id/edit", (req, res, next)=>{
     })
 })
 
+router.post("/movies/:id", (req, res, next)=>{
+    const { title, genre, plot, cast } = req.body
+
+    Movie.findByIdAndUpdate({id: req.params.id}, {title, genre, plot, cast})
+    .then(() =>{
+        res.redirect("/movies")
+    })
+    .catch(err =>{
+        console.log(err)
+    })
+})
+
 module.exports = router;
